@@ -1,0 +1,14 @@
+{
+  "dim": "minecraft:overworld",
+  "cSet": false,
+  "eSet": false,
+  "cx": 0.0,
+  "cy": 80.0,
+  "cz": 0.0,
+  "ex": 0.0,
+  "ey": 80.0,
+  "ez": -20.0,
+  "walkTicks": 100,
+  "poseTicks": 110,
+  "members": []
+}
