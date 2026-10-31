@@ -15,9 +15,15 @@ dependencies {
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 }
 
-processResources {
-    inputs.property "version", project.version
-    filesMatching("fabric.mod.json") { expand "version": project.version }
+// Capture the version as a plain String so task actions do not access the
+// Gradle Project model while configuration-cache state is being stored.
+def modVersion = project.version.toString()
+
+tasks.named('processResources', ProcessResources).configure {
+    inputs.property 'version', modVersion
+    filesMatching('fabric.mod.json') {
+        expand(version: modVersion)
+    }
 }
 
 tasks.withType(JavaCompile).configureEach { options.release = 25 }
